@@ -237,7 +237,7 @@ explaining the technique used in the code below and its time/space complexity.
 Do not repeat the problem statement. Do not include the code itself.
 
 Problem: {title} ({problem_id}, {difficulty})
-Topics: {", ".join(tags)}
+Topics: {', '.join(tags)}
 Language: {language}
 
 Problem description:
