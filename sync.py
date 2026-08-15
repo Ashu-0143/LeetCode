@@ -1,9 +1,9 @@
 import os
 import re
-import html
 from pathlib import Path
 
 import requests
+import html2text
 from openai import OpenAI
 
 
@@ -19,10 +19,8 @@ client = OpenAI(api_key=OPENAI_API_KEY)
 
 
 # ============================================================
-# LEETCODE CONFIG
+# LEETCODE SESSION
 # ============================================================
-
-LEETCODE_GRAPHQL = "https://leetcode.com/graphql"
 
 cookies = {
     "LEETCODE_SESSION": SESSION,
@@ -33,7 +31,79 @@ headers = {
     "User-Agent": "Mozilla/5.0",
     "Referer": "https://leetcode.com/",
     "Content-Type": "application/json",
+    "x-csrftoken": CSRF,
 }
+
+
+# ============================================================
+# HTML -> MARKDOWN CONVERTER
+# ============================================================
+
+html_converter = html2text.HTML2Text()
+html_converter.body_width = 0
+html_converter.ignore_links = False
+html_converter.ignore_images = False
+
+
+def html_to_markdown(html_content):
+    if not html_content:
+        return ""
+    return html_converter.handle(html_content).strip()
+
+
+# ============================================================
+# GET RECENT SUBMISSIONS
+# ============================================================
+
+submission_query = """
+query submissionList($offset: Int!, $limit: Int!) {
+    submissionList(offset: $offset, limit: $limit) {
+        submissions {
+            id
+            title
+            titleSlug
+            statusDisplay
+            lang
+        }
+        hasNext
+    }
+}
+"""
+
+payload = {
+    "query": submission_query,
+    "variables": {
+        "offset": 0,
+        "limit": 50
+    }
+}
+
+response = requests.post(
+    "https://leetcode.com/graphql",
+    json=payload,
+    cookies=cookies,
+    headers=headers,
+    timeout=30,
+)
+
+response.raise_for_status()
+
+data = response.json()
+
+if "errors" in data:
+    print("LeetCode GraphQL error:")
+    print(data["errors"])
+    raise SystemExit(1)
+
+submission_data = (
+    data
+    .get("data", {})
+    .get("submissionList", {})
+)
+
+submissions = submission_data.get("submissions", [])
+
+print(f"Found {len(submissions)} recent submissions.")
 
 
 # ============================================================
@@ -69,175 +139,7 @@ def slugify(text):
     ).strip("-")
 
 
-def clean_leetcode_html(content):
-    """
-    Convert LeetCode's HTML problem description
-    into reasonably readable Markdown.
-    """
-
-    if not content:
-        return ""
-
-    content = html.unescape(content)
-
-    # Normalize line breaks
-    content = re.sub(r"<br\s*/?>", "\n", content, flags=re.I)
-
-    # Headings
-    content = re.sub(
-        r"<h[1-6][^>]*>(.*?)</h[1-6]>",
-        r"\n\1\n",
-        content,
-        flags=re.I | re.S
-    )
-
-    # Paragraphs
-    content = re.sub(
-        r"<p[^>]*>(.*?)</p>",
-        r"\n\1\n",
-        content,
-        flags=re.I | re.S
-    )
-
-    # Bold
-    content = re.sub(
-        r"<(?:strong|b)[^>]*>(.*?)</(?:strong|b)>",
-        r"**\1**",
-        content,
-        flags=re.I | re.S
-    )
-
-    # Italic
-    content = re.sub(
-        r"<(?:em|i)[^>]*>(.*?)</(?:em|i)>",
-        r"*\1*",
-        content,
-        flags=re.I | re.S
-    )
-
-    # Inline code
-    content = re.sub(
-        r"<code[^>]*>(.*?)</code>",
-        r"`\1`",
-        content,
-        flags=re.I | re.S
-    )
-
-    # List items
-    content = re.sub(
-        r"<li[^>]*>(.*?)</li>",
-        r"\n- \1",
-        content,
-        flags=re.I | re.S
-    )
-
-    # Preformatted code/examples
-    content = re.sub(
-        r"<pre[^>]*>(.*?)</pre>",
-        r"\n```\n\1\n```\n",
-        content,
-        flags=re.I | re.S
-    )
-
-    # Remove remaining HTML tags
-    content = re.sub(
-        r"<[^>]+>",
-        "",
-        content
-    )
-
-    # Decode entities again
-    content = html.unescape(content)
-
-    # Clean excessive whitespace
-    content = re.sub(
-        r"\n\s*\n\s*\n+",
-        "\n\n",
-        content
-    )
-
-    return content.strip()
-
-
-# ============================================================
-# GRAPHQL REQUEST
-# ============================================================
-
-def graphql_request(query, variables):
-    response = requests.post(
-        LEETCODE_GRAPHQL,
-        json={
-            "query": query,
-            "variables": variables,
-        },
-        cookies=cookies,
-        headers=headers,
-        timeout=30,
-    )
-
-    print(f"GraphQL status: {response.status_code}")
-
-    response.raise_for_status()
-
-    data = response.json()
-
-    if "errors" in data:
-        print("GraphQL errors:")
-        print(data["errors"])
-        return None
-
-    return data.get("data")
-
-
-# ============================================================
-# GET RECENT SUBMISSIONS
-# ============================================================
-
-def get_submissions():
-
-    query = """
-    query submissionList($offset: Int!, $limit: Int!) {
-        submissionList(offset: $offset, limit: $limit) {
-            submissions {
-                id
-                title
-                titleSlug
-                statusDisplay
-                lang
-            }
-            hasNext
-        }
-    }
-    """
-
-    data = graphql_request(
-        query,
-        {
-            "offset": 0,
-            "limit": 50,
-        }
-    )
-
-    if not data:
-        return []
-
-    submission_list = data.get(
-        "submissionList",
-        {}
-    )
-
-    return submission_list.get(
-        "submissions",
-        []
-    )
-
-
-# ============================================================
-# GET SUBMISSION CODE
-# ============================================================
-
 def get_submission_code(submission_id):
-
     query = """
     query submissionDetails($submissionId: Int!) {
         submissionDetails(submissionId: $submissionId) {
@@ -250,27 +152,38 @@ def get_submission_code(submission_id):
     }
     """
 
-    data = graphql_request(
-        query,
-        {
+    payload = {
+        "query": query,
+        "variables": {
             "submissionId": int(submission_id)
         }
+    }
+
+    response = requests.post(
+        "https://leetcode.com/graphql",
+        json=payload,
+        cookies=cookies,
+        headers=headers,
+        timeout=30,
     )
 
-    if not data:
+    response.raise_for_status()
+
+    data = response.json()
+
+    if "errors" in data:
+        print("Could not get submission code:")
+        print(data["errors"])
         return None
 
-    return data.get(
-        "submissionDetails"
+    return (
+        data
+        .get("data", {})
+        .get("submissionDetails")
     )
 
 
-# ============================================================
-# GET QUESTION METADATA + DESCRIPTION
-# ============================================================
-
 def get_question_metadata(title_slug):
-
     query = """
     query questionData($titleSlug: String!) {
         question(titleSlug: $titleSlug) {
@@ -285,59 +198,195 @@ def get_question_metadata(title_slug):
     }
     """
 
-    data = graphql_request(
-        query,
-        {
+    payload = {
+        "query": query,
+        "variables": {
             "titleSlug": title_slug
         }
+    }
+
+    response = requests.post(
+        "https://leetcode.com/graphql",
+        json=payload,
+        cookies=cookies,
+        headers=headers,
+        timeout=30,
     )
 
-    if not data:
+    response.raise_for_status()
+
+    data = response.json()
+
+    if "errors" in data:
+        print("Metadata error:")
+        print(data["errors"])
         return None
 
-    return data.get(
-        "question"
+    return (
+        data
+        .get("data", {})
+        .get("question")
     )
 
 
-# ============================================================
-# GENERATE README WITH AI
-# ============================================================
+def generate_ai_summary(title, problem_id, difficulty, language, tags, description_md, code):
+    prompt = f"""You are analyzing a student's accepted LeetCode solution.
 
-def generate_readme(
-    title,
-    problem_id,
-    difficulty,
-    language,
-    tags,
-    description,
-    code
-):
+Write a short "Approach" section (3-6 sentences, plain prose, no headers)
+explaining the technique used in the code below and its time/space complexity.
+Do not repeat the problem statement. Do not include the code itself.
 
-    prompt = f"""
-You are creating a README.md for a student's LeetCode repository.
+Problem: {title} ({problem_id}, {difficulty})
+Topics: {", ".join(tags)}
+Language: {language}
 
-Create a clean, useful Markdown README.
+Problem description:
+{description_md}
 
-Problem:
-{title}
-
-Problem Number:
-{problem_id}
-
-Difficulty:
-{difficulty}
-
-Language:
-{language}
-
-Topics:
-{", ".join(tags)}
-
-Original LeetCode Problem Description:
-{description}
-
-Student's Accepted Solution:
-
+Student's submitted code:
 ```{language}
 {code}
+```
+"""
+
+    completion = client.chat.completions.create(
+        model="gpt-4o-mini",
+        messages=[{"role": "user", "content": prompt}],
+        temperature=0.3,
+    )
+
+    return completion.choices[0].message.content.strip()
+
+
+def build_readme(title, problem_id, difficulty, language, tags, description_md, ai_summary, title_slug):
+    tag_line = ", ".join(tags) if tags else "—"
+    extension = extensions.get(language.lower(), "txt")
+
+    return f"""# {problem_id}. {title}
+
+**Difficulty:** {difficulty}
+**Topics:** {tag_line}
+**Link:** https://leetcode.com/problems/{title_slug}/
+
+## Problem
+
+{description_md}
+
+## Approach
+
+{ai_summary}
+
+## Solution
+
+See [`solution.{extension}`](./solution.{extension})
+"""
+
+
+# ============================================================
+# PROCESS SUBMISSIONS
+# ============================================================
+
+processed_slugs = set()
+
+for submission in submissions:
+
+    if submission.get("statusDisplay") != "Accepted":
+        continue
+
+    title = submission["title"]
+    title_slug = submission["titleSlug"]
+    language = submission["lang"]
+    submission_id = submission["id"]
+
+    # Dedupe on the *problem*, not the submission — a problem can
+    # appear multiple times in recent submissions if resubmitted.
+    if title_slug in processed_slugs:
+        continue
+
+    processed_slugs.add(title_slug)
+
+    print()
+    print("=" * 60)
+    print(f"Problem: {title}")
+    print(f"Slug: {title_slug}")
+    print(f"Language: {language}")
+
+    # --------------------------------------------------------
+    # GET QUESTION METADATA (needed for folder path either way)
+    # --------------------------------------------------------
+
+    question = get_question_metadata(title_slug)
+
+    if not question:
+        print("Could not find question metadata.")
+        continue
+
+    difficulty = question["difficulty"]
+    problem_id = str(question["questionFrontendId"]).zfill(4)
+    tags = [tag["name"] for tag in question.get("topicTags", [])]
+    description_md = html_to_markdown(question.get("content"))
+
+    print(f"Problem ID: {problem_id}")
+    print(f"Difficulty: {difficulty}")
+    print(f"Topics: {', '.join(tags)}")
+
+    safe_title = slugify(title)
+    folder = Path(difficulty) / f"{problem_id}-{safe_title}"
+    folder.mkdir(parents=True, exist_ok=True)
+
+    extension = extensions.get(language.lower(), "txt")
+    solution_file = folder / f"solution.{extension}"
+    readme_file = folder / "README.md"
+
+    solution_written = False
+    code = None
+
+    # --------------------------------------------------------
+    # SAVE SOLUTION (only fetch code if we actually need it)
+    # --------------------------------------------------------
+
+    if not solution_file.exists():
+        details = get_submission_code(submission_id)
+
+        if not details or not details.get("code"):
+            print("Could not retrieve submission code.")
+            continue
+
+        code = details["code"]
+        solution_file.write_text(code, encoding="utf-8")
+        solution_written = True
+        print(f"Saved solution: {solution_file}")
+    else:
+        print(f"Solution already exists: {solution_file}")
+
+    # --------------------------------------------------------
+    # README
+    # --------------------------------------------------------
+
+    if readme_file.exists():
+        print(f"README already exists: {readme_file}")
+        continue
+
+    # We need the code for the AI summary even if the solution
+    # file already existed from a previous run.
+    if code is None:
+        code = solution_file.read_text(encoding="utf-8")
+
+    try:
+        ai_summary = generate_ai_summary(
+            title, problem_id, difficulty, language, tags, description_md, code
+        )
+    except Exception as e:
+        print(f"AI summary failed, falling back to placeholder: {e}")
+        ai_summary = "_(AI summary unavailable for this run.)_"
+
+    readme_content = build_readme(
+        title, problem_id, difficulty, language, tags,
+        description_md, ai_summary, title_slug,
+    )
+
+    readme_file.write_text(readme_content, encoding="utf-8")
+    print(f"Saved README: {readme_file}")
+
+print()
+print("Done.")

@@ -19,7 +19,7 @@ jobs:
           python-version: "3.x"
 
       - name: Install dependencies
-        run: pip install requests openai
+        run: pip install requests openai html2text
 
       - name: Run sync
         env:
