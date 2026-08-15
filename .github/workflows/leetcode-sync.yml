@@ -26,3 +26,16 @@ jobs:
           LEETCODE_SESSION: ${{ secrets.LEETCODE_SESSION }}
           LEETCODE_CSRF_TOKEN: ${{ secrets.LEETCODE_CSRF_TOKEN }}
         run: python sync.py
+      - name: Commit and push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add Easy Medium Hard
+
+          if git diff --cached --quiet; then
+            echo "No new solutions."
+          else
+            git commit -m "Add LeetCode solutions"
+            git push
+          fi
