@@ -1,0 +1,171 @@
+{
+  "content_fetched": true,
+  "content_markdown": "Given a string `s` containing just the characters `'('`, `')'`, `'{'`, `'}'`, `'['` and `']'`, determine if the input string is valid.\n\nAn input string is valid if:\n\n1. Open brackets must be closed by the same type of brackets.\n\n2. Open brackets must be closed in the correct order.\n\n3. Every close bracket has a corresponding open bracket of the same type.\n\n \n\n**Example 1:**\n\n**Input:** s = \"()\"\n\n**Output:** true\n\n**Example 2:**\n\n**Input:** s = \"()[]{}\"\n\n**Output:** true\n\n**Example 3:**\n\n**Input:** s = \"(]\"\n\n**Output:** false\n\n**Example 4:**\n\n**Input:** s = \"([])\"\n\n**Output:** true\n\n**Example 5:**\n\n**Input:** s = \"([)]\"\n\n**Output:** false\n\n \n\n**Constraints:**\n\n- `1 <= s.length <= 10^4`\n\n- `s` consists of parentheses only `'()[]{}'`.",
+  "content_unavailable_reason": null,
+  "difficulty": "Easy",
+  "last_synced_at": "2026-08-26T09:26:33.366675+00:00",
+  "number": "20",
+  "slug": "valid-parentheses",
+  "submissions": [
+    {
+      "code_saved": true,
+      "id": "2107647894",
+      "lang": "c",
+      "memory": "N/A",
+      "runtime": "N/A",
+      "status": "Compile Error",
+      "timestamp": 1786797863
+    },
+    {
+      "code_saved": true,
+      "id": "2107759985",
+      "lang": "c",
+      "memory": "N/A",
+      "runtime": "N/A",
+      "status": "Wrong Answer",
+      "timestamp": 1786804348
+    },
+    {
+      "code_saved": true,
+      "id": "2107809247",
+      "lang": "c",
+      "memory": "N/A",
+      "runtime": "N/A",
+      "status": "Runtime Error",
+      "timestamp": 1786805342
+    },
+    {
+      "code_saved": true,
+      "id": "2107810567",
+      "lang": "c",
+      "memory": "N/A",
+      "runtime": "N/A",
+      "status": "Runtime Error",
+      "timestamp": 1786805375
+    },
+    {
+      "code_saved": true,
+      "id": "2107816799",
+      "lang": "c",
+      "memory": "N/A",
+      "runtime": "N/A",
+      "status": "Runtime Error",
+      "timestamp": 1786805533
+    },
+    {
+      "code_saved": true,
+      "id": "2107817195",
+      "lang": "c",
+      "memory": "N/A",
+      "runtime": "N/A",
+      "status": "Runtime Error",
+      "timestamp": 1786805544
+    },
+    {
+      "code_saved": true,
+      "id": "2107829418",
+      "lang": "c",
+      "memory": "N/A",
+      "runtime": "N/A",
+      "status": "Wrong Answer",
+      "timestamp": 1786805862
+    },
+    {
+      "code_saved": true,
+      "id": "2107829988",
+      "lang": "c",
+      "memory": "N/A",
+      "runtime": "N/A",
+      "status": "Wrong Answer",
+      "timestamp": 1786805878
+    },
+    {
+      "code_saved": true,
+      "id": "2107903954",
+      "lang": "c",
+      "memory": "N/A",
+      "runtime": "N/A",
+      "status": "Runtime Error",
+      "timestamp": 1786808074
+    },
+    {
+      "code_saved": true,
+      "id": "2107908856",
+      "lang": "c",
+      "memory": "N/A",
+      "runtime": "N/A",
+      "status": "Wrong Answer",
+      "timestamp": 1786808240
+    },
+    {
+      "code_saved": true,
+      "id": "2107920572",
+      "lang": "c",
+      "memory": "N/A",
+      "runtime": "N/A",
+      "status": "Wrong Answer",
+      "timestamp": 1786808632
+    },
+    {
+      "code_saved": true,
+      "id": "2107941238",
+      "lang": "c",
+      "memory": "N/A",
+      "runtime": "N/A",
+      "status": "Runtime Error",
+      "timestamp": 1786809333
+    },
+    {
+      "code_saved": true,
+      "id": "2107945993",
+      "lang": "c",
+      "memory": "N/A",
+      "runtime": "N/A",
+      "status": "Wrong Answer",
+      "timestamp": 1786809492
+    },
+    {
+      "code_saved": true,
+      "id": "2107948180",
+      "lang": "c",
+      "memory": "N/A",
+      "runtime": "N/A",
+      "status": "Runtime Error",
+      "timestamp": 1786809560
+    },
+    {
+      "code_saved": true,
+      "id": "2107959265",
+      "lang": "c",
+      "memory": "N/A",
+      "runtime": "N/A",
+      "status": "Runtime Error",
+      "timestamp": 1786810048
+    },
+    {
+      "code_saved": true,
+      "id": "2107959542",
+      "lang": "c",
+      "memory": "N/A",
+      "runtime": "N/A",
+      "status": "Runtime Error",
+      "timestamp": 1786810061
+    },
+    {
+      "code_saved": true,
+      "id": "2107959785",
+      "lang": "c",
+      "memory": "9.3 MB",
+      "runtime": "0 ms",
+      "status": "Accepted",
+      "timestamp": 1786810075
+    }
+  ],
+  "title": "Valid Parentheses",
+  "topics": [
+    "String",
+    "Stack",
+    "Bracket Sequences"
+  ],
+  "url": "https://leetcode.com/problems/valid-parentheses/"
+}
