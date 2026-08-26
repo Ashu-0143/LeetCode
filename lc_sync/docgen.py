@@ -22,23 +22,7 @@ from . import config, storage
 
 _PERSONAL_TEMPLATE = f"""{config.PERSONAL_START}
 
-### My Approach
-
-_How I personally solved it — write this yourself._
-
-### Complexity
-
-- Time complexity:
-- Space complexity:
-
-### My Notes
-
-_Mistakes made, edge cases missed, anything worth remembering._
-
-### What I Learned
-
-_Anything useful for next time._
-
+#Notes: 
 {config.PERSONAL_END}
 """
 
