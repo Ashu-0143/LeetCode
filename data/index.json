@@ -1,5 +1,5 @@
 {
-  "last_synced_timestamp": 1787740298,
+  "last_synced_timestamp": 1787796159,
   "submissions": {
     "2106264835": {
       "lang": "python",
@@ -306,6 +306,12 @@
       "problem_slug": "linked-list-cycle",
       "status": "Accepted",
       "timestamp": 1787740298
+    },
+    "2121387369": {
+      "lang": "c",
+      "problem_slug": "two-sum",
+      "status": "Accepted",
+      "timestamp": 1787796159
     }
   }
 }

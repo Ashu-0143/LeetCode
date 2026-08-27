@@ -6,22 +6,22 @@ An automatically maintained archive of my LeetCode solutions, synced automatical
 
 ## 📊 LeetCode Dashboard
 
-_Last synced: 2026-08-27 01:35 IST_
+_Last synced: 2026-08-27 07:46 IST_
 
 ### Overall Progress
 
 | Metric | Count |
 | --- | --- |
-| Unique problems solved | **13** |
-| Total submissions | 51 |
-| Accepted submissions | 16 |
+| Unique problems solved | **14** |
+| Total submissions | 52 |
+| Accepted submissions | 17 |
 | Failed submissions | 35 |
 
 ### Difficulty
 
 | Difficulty | Solved | % | |
 | --- | --- | --- | --- |
-| Easy | 13 | 100.0% | `████████████████████` |
+| Easy | 14 | 100.0% | `████████████████████` |
 | Medium | 0 | 0.0% | `░░░░░░░░░░░░░░░░░░░░` |
 | Hard | 0 | 0.0% | `░░░░░░░░░░░░░░░░░░░░` |
 
@@ -29,19 +29,20 @@ _Last synced: 2026-08-27 01:35 IST_
 
 | Language | Solved | % |
 | --- | --- | --- |
-| C | 10 | 76.9% |
-| Python | 2 | 15.4% |
-| Bash | 1 | 7.7% |
+| C | 11 | 78.6% |
+| Python | 2 | 14.3% |
+| Bash | 1 | 7.1% |
 
 ### Streak
 
-🔥 **Current streak:** 1 day(s)  
+🔥 **Current streak:** 2 day(s)  
 🏆 **Longest streak:** 4 day(s)
 
 ### Recent Problems
 
 | Problem | Difficulty | Language | Status | Date |
 | --- | --- | --- | --- | --- |
+| [Two Sum](problems/0001-two-sum/) | Easy | C | Accepted | Aug 27, 2026 |
 | [Linked List Cycle](problems/0141-linked-list-cycle/) | Easy | C | Accepted | Aug 26, 2026 |
 | [Tenth Line](problems/0195-tenth-line/) | Easy | Bash | Accepted | Aug 26, 2026 |
 | [Happy Number](problems/0202-happy-number/) | Easy | C | Accepted | Aug 23, 2026 |
@@ -51,13 +52,12 @@ _Last synced: 2026-08-27 01:35 IST_
 | [Longest Common Prefix](problems/0014-longest-common-prefix/) | Easy | C | Accepted | Aug 19, 2026 |
 | [Palindrome Number](problems/0009-palindrome-number/) | Easy | C | Accepted | Aug 16, 2026 |
 | [Length of Last Word](problems/0058-length-of-last-word/) | Easy | Python | Accepted | Aug 16, 2026 |
-| [Power of Two](problems/0231-power-of-two/) | Easy | C | Accepted | Aug 16, 2026 |
 
 ### Weekly / Monthly / Yearly Progress
 
-- This week: **2** unique problem(s) solved
-- This month: **13** unique problem(s) solved
-- This year: **13** unique problem(s) solved
+- This week: **3** unique problem(s) solved
+- This month: **14** unique problem(s) solved
+- This year: **14** unique problem(s) solved
 
 ### Monthly Activity
 
@@ -65,6 +65,6 @@ _Last synced: 2026-08-27 01:35 IST_
 
 ### Topics
 
-Math (5), String (4), Array (4), Hash Table (3), Linked List (2), Recursion (2), Bit Manipulation (2), Two Pointers (2), Floyd's Cycle Finding Algorithm (2), Trie (1), Stack (1), Bracket Sequences (1)
+Array (5), Math (5), Hash Table (4), String (4), Linked List (2), Recursion (2), Bit Manipulation (2), Two Pointers (2), Floyd's Cycle Finding Algorithm (2), Trie (1), Stack (1), Bracket Sequences (1)
 
 <!-- LC-SYNC:README-AUTO:END -->
