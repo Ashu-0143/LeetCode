@@ -1,0 +1,90 @@
+{
+  "content_fetched": true,
+  "content_markdown": "You are given a **0-indexed** array of integers `nums`.\n\nA prefix `nums[0..i]` is **sequential** if, for all `1 <= j <= i`, `nums[j] = nums[j - 1] + 1`. In particular, the prefix consisting only of `nums[0]` is **sequential**.\n\nReturn *the **smallest** integer* `x` *missing from* `nums` *such that* `x` *is greater than or equal to the sum of the **longest** sequential prefix.*\n\n \n\n**Example 1:**\n\n```\n\n**Input:** nums = [1,2,3,2,5]\n**Output:** 6\n**Explanation:** The longest sequential prefix of nums is [1,2,3] with a sum of 6. 6 is not in the array, therefore 6 is the smallest missing integer greater than or equal to the sum of the longest sequential prefix.\n\n```\n\n**Example 2:**\n\n```\n\n**Input:** nums = [3,4,5,1,12,14,13]\n**Output:** 15\n**Explanation:** The longest sequential prefix of nums is [3,4,5] with a sum of 12. 12, 13, and 14 belong to the array while 15 does not. Therefore 15 is the smallest missing integer greater than or equal to the sum of the longest sequential prefix.\n\n```\n\n \n\n**Constraints:**\n\n- `1 <= nums.length <= 50`\n\n- `1 <= nums[i] <= 50`",
+  "content_unavailable_reason": null,
+  "difficulty": "Easy",
+  "last_synced_at": "2026-08-28T11:21:25.765624+00:00",
+  "number": "2996",
+  "slug": "smallest-missing-integer-greater-than-sequential-prefix-sum",
+  "submissions": [
+    {
+      "code_saved": true,
+      "id": "2122657068",
+      "lang": "c",
+      "memory": "N/A",
+      "runtime": "N/A",
+      "status": "Runtime Error",
+      "timestamp": 1787901819
+    },
+    {
+      "code_saved": true,
+      "id": "2122658642",
+      "lang": "c",
+      "memory": "N/A",
+      "runtime": "N/A",
+      "status": "Wrong Answer",
+      "timestamp": 1787901961
+    },
+    {
+      "code_saved": true,
+      "id": "2122660736",
+      "lang": "c",
+      "memory": "N/A",
+      "runtime": "N/A",
+      "status": "Wrong Answer",
+      "timestamp": 1787902151
+    },
+    {
+      "code_saved": true,
+      "id": "2122766322",
+      "lang": "c",
+      "memory": "N/A",
+      "runtime": "N/A",
+      "status": "Wrong Answer",
+      "timestamp": 1787911453
+    },
+    {
+      "code_saved": true,
+      "id": "2122768098",
+      "lang": "c",
+      "memory": "N/A",
+      "runtime": "N/A",
+      "status": "Wrong Answer",
+      "timestamp": 1787911591
+    },
+    {
+      "code_saved": true,
+      "id": "2122770394",
+      "lang": "c",
+      "memory": "N/A",
+      "runtime": "N/A",
+      "status": "Wrong Answer",
+      "timestamp": 1787911774
+    },
+    {
+      "code_saved": true,
+      "id": "2122774507",
+      "lang": "c",
+      "memory": "10.6 MB",
+      "runtime": "2 ms",
+      "status": "Accepted",
+      "timestamp": 1787912110
+    },
+    {
+      "code_saved": true,
+      "id": "2122774846",
+      "lang": "c",
+      "memory": "10.6 MB",
+      "runtime": "0 ms",
+      "status": "Accepted",
+      "timestamp": 1787912138
+    }
+  ],
+  "title": "Smallest Missing Integer Greater Than Sequential Prefix Sum",
+  "topics": [
+    "Array",
+    "Hash Table",
+    "Sorting"
+  ],
+  "url": "https://leetcode.com/problems/smallest-missing-integer-greater-than-sequential-prefix-sum/"
+}

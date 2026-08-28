@@ -1,0 +1,26 @@
+int missingInteger(int* nums, int numsSize) {
+    int sum = nums[0], last = nums[numsSize - 1], max = 0, arr[50];
+    for (int w = 0; w < numsSize; w++) {
+        if (nums[w] > max)
+            max = nums[w];
+        arr[nums[w]] = nums[w];
+    }
+    for (int i = 1; i < numsSize; i++) {
+        if (nums[i] == (nums[i - 1] + 1))
+            sum += nums[i];
+        else {
+            if (arr[sum] == 0)
+                return sum;
+            else {
+                sum++;
+                while (sum != max) {
+                    if (arr[sum] == 0)
+                        return sum;
+
+                    sum++;
+                }
+            }
+        }
+    }
+    return sum;
+}
