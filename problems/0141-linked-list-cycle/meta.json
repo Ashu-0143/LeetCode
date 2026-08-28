@@ -1,0 +1,46 @@
+{
+  "content_fetched": true,
+  "content_markdown": "Given `head`, the head of a linked list, determine if the linked list has a cycle in it.\n\nThere is a cycle in a linked list if there is some node in the list that can be reached again by continuously following the `next` pointer. Internally, `pos` is used to denote the index of the node that tail's `next` pointer is connected to. **Note that `pos` is not passed as a parameter**.\n\nReturn `true`* if there is a cycle in the linked list*. Otherwise, return `false`.\n\n \n\n**Example 1:**\n\n*[image omitted — view on LeetCode]*\n\n```\n\n**Input:** head = [3,2,0,-4], pos = 1\n**Output:** true\n**Explanation:** There is a cycle in the linked list, where the tail connects to the 1st node (0-indexed).\n\n```\n\n**Example 2:**\n\n*[image omitted — view on LeetCode]*\n\n```\n\n**Input:** head = [1,2], pos = 0\n**Output:** true\n**Explanation:** There is a cycle in the linked list, where the tail connects to the 0th node.\n\n```\n\n**Example 3:**\n\n*[image omitted — view on LeetCode]*\n\n```\n\n**Input:** head = [1], pos = -1\n**Output:** false\n**Explanation:** There is no cycle in the linked list.\n\n```\n\n \n\n**Constraints:**\n\n- The number of the nodes in the list is in the range `[0, 10^4]`.\n\n- `-10^5 <= Node.val <= 10^5`\n\n- `pos` is `-1` or a **valid index** in the linked-list.\n\n \n\n**Follow up:** Can you solve it using `O(1)` (i.e. constant) memory?",
+  "content_unavailable_reason": null,
+  "difficulty": "Easy",
+  "last_synced_at": "2026-08-28T12:00:56.514889+00:00",
+  "number": "141",
+  "slug": "linked-list-cycle",
+  "submissions": [
+    {
+      "code_saved": true,
+      "id": "2120651176",
+      "lang": "c",
+      "memory": "N/A",
+      "runtime": "N/A",
+      "status": "Time Limit Exceeded",
+      "timestamp": 1787738439
+    },
+    {
+      "code_saved": true,
+      "id": "2120665591",
+      "lang": "c",
+      "memory": "N/A",
+      "runtime": "N/A",
+      "status": "Wrong Answer",
+      "timestamp": 1787739378
+    },
+    {
+      "code_saved": true,
+      "id": "2120679018",
+      "lang": "c",
+      "memory": "12 MB",
+      "runtime": "14 ms",
+      "status": "Accepted",
+      "timestamp": 1787740298
+    }
+  ],
+  "title": "Linked List Cycle",
+  "topics": [
+    "Hash Table",
+    "Linked List",
+    "Two Pointers",
+    "Floyd's Cycle Finding Algorithm"
+  ],
+  "url": "https://leetcode.com/problems/linked-list-cycle/"
+}

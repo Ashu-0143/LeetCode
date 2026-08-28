@@ -1,0 +1,52 @@
+{
+  "content_fetched": true,
+  "content_markdown": "Given a text file `file.txt`, print just the 10th line of the file.\r\n\r\n\n**Example:**\r\n\r\n\nAssume that `file.txt` has the following content:\r\n\r\n\n```\n\r\nLine 1\r\nLine 2\r\nLine 3\r\nLine 4\r\nLine 5\r\nLine 6\r\nLine 7\r\nLine 8\r\nLine 9\r\nLine 10\r\n\n```\n\n\r\n\r\n\nYour script should output the tenth line, which is:\r\n\r\n\n```\n\r\nLine 10\r\n\n```\n\n\r\n\r\n**Note:**\n\r\n1. If the file contains less than 10 lines, what should you output?\n\r\n2. There's at least three different solutions. Try to explore all possibilities.",
+  "content_unavailable_reason": null,
+  "difficulty": "Easy",
+  "last_synced_at": "2026-08-28T12:00:51.082164+00:00",
+  "number": "195",
+  "slug": "tenth-line",
+  "submissions": [
+    {
+      "code_saved": true,
+      "id": "2120633780",
+      "lang": "bash",
+      "memory": "N/A",
+      "runtime": "N/A",
+      "status": "Runtime Error",
+      "timestamp": 1787737263
+    },
+    {
+      "code_saved": true,
+      "id": "2120635127",
+      "lang": "bash",
+      "memory": "4 MB",
+      "runtime": "18 ms",
+      "status": "Accepted",
+      "timestamp": 1787737355
+    },
+    {
+      "code_saved": true,
+      "id": "2120635303",
+      "lang": "bash",
+      "memory": "N/A",
+      "runtime": "N/A",
+      "status": "Wrong Answer",
+      "timestamp": 1787737367
+    },
+    {
+      "code_saved": true,
+      "id": "2120635472",
+      "lang": "bash",
+      "memory": "3.9 MB",
+      "runtime": "23 ms",
+      "status": "Accepted",
+      "timestamp": 1787737377
+    }
+  ],
+  "title": "Tenth Line",
+  "topics": [
+    "Shell"
+  ],
+  "url": "https://leetcode.com/problems/tenth-line/"
+}
