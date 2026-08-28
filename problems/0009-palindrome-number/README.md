@@ -5,7 +5,7 @@
 **Difficulty:** Easy  |  **LeetCode:** [palindrome-number](https://leetcode.com/problems/palindrome-number/)
 **Topics:** Math
 
-**Latest submission:** ✅ Accepted in C — see [`solution.c`](solution.c)
+**Latest submission:** ✅ Accepted in Python — see [`solution.py`](solution.py)
 
 ## Problem Statement
 
@@ -56,6 +56,7 @@ Given an integer `x`, return `true` if `x` is a **palindrome**, and `false` othe
 
 | Date | Status | Language | Runtime | Memory | Code |
 | --- | --- | --- | --- | --- | --- |
+| 2026-08-28 12:14 UTC | ✅ Accepted | Python | 4 ms | 12.5 MB | [view](submissions/1787919271_Accepted_2122854815.py) |
 | 2026-08-16 13:07 UTC | ✅ Accepted | C | 4 ms | 9.4 MB | [view](submissions/1786885636_Accepted_2109000020.c) |
 
 <!-- LC-SYNC:AUTO-GENERATED:END -->

@@ -6,15 +6,15 @@ An automatically maintained archive of my LeetCode solutions, synced automatical
 
 ## 📊 LeetCode Dashboard
 
-_Last synced: 2026-08-28 17:31 IST_
+_Last synced: 2026-08-28 17:45 IST_
 
 ### Overall Progress
 
 | Metric | Count |
 | --- | --- |
 | Unique problems solved | **15** |
-| Total submissions | 60 |
-| Accepted submissions | 19 |
+| Total submissions | 61 |
+| Accepted submissions | 20 |
 | Failed submissions | 41 |
 
 ### Difficulty
@@ -42,6 +42,7 @@ _Last synced: 2026-08-28 17:31 IST_
 
 | Problem | Difficulty | Language | Status | Date |
 | --- | --- | --- | --- | --- |
+| [Palindrome Number](problems/0009-palindrome-number/) | Easy | Python | Accepted | Aug 28, 2026 |
 | [Smallest Missing Integer Greater Than Sequential Prefix Sum](problems/2996-smallest-missing-integer-greater-than-sequential-prefix-sum/) | Easy | C | Accepted | Aug 28, 2026 |
 | [Two Sum](problems/0001-two-sum/) | Easy | C | Accepted | Aug 27, 2026 |
 | [Linked List Cycle](problems/0141-linked-list-cycle/) | Easy | C | Accepted | Aug 26, 2026 |
@@ -51,7 +52,6 @@ _Last synced: 2026-08-28 17:31 IST_
 | [Kids With the Greatest Number of Candies](problems/1431-kids-with-the-greatest-number-of-candies/) | Easy | C | Accepted | Aug 19, 2026 |
 | [Plus One](problems/0066-plus-one/) | Easy | C | Accepted | Aug 19, 2026 |
 | [Longest Common Prefix](problems/0014-longest-common-prefix/) | Easy | C | Accepted | Aug 19, 2026 |
-| [Palindrome Number](problems/0009-palindrome-number/) | Easy | C | Accepted | Aug 16, 2026 |
 
 ### Weekly / Monthly / Yearly Progress
 
