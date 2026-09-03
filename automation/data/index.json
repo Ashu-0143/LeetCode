@@ -1,5 +1,5 @@
 {
-  "last_synced_timestamp": 1787919271,
+  "last_synced_timestamp": 1788402742,
   "submissions": {
     "2106264835": {
       "lang": "python",
@@ -366,6 +366,24 @@
       "problem_slug": "palindrome-number",
       "status": "Accepted",
       "timestamp": 1787919271
+    },
+    "2129067983": {
+      "lang": "c",
+      "problem_slug": "shuffle-the-array",
+      "status": "Accepted",
+      "timestamp": 1788401186
+    },
+    "2129068208": {
+      "lang": "c",
+      "problem_slug": "shuffle-the-array",
+      "status": "Accepted",
+      "timestamp": 1788401217
+    },
+    "2129080253": {
+      "lang": "c",
+      "problem_slug": "remove-duplicates-from-sorted-array",
+      "status": "Accepted",
+      "timestamp": 1788402742
     }
   }
 }

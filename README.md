@@ -6,22 +6,22 @@ An automatically maintained archive of my LeetCode solutions, synced automatical
 
 ## 📊 LeetCode Dashboard
 
-_Last synced: 2026-09-03 02:35 IST_
+_Last synced: 2026-09-03 08:18 IST_
 
 ### Overall Progress
 
 | Metric | Count |
 | --- | --- |
-| Unique problems solved | **15** |
-| Total submissions | 61 |
-| Accepted submissions | 20 |
+| Unique problems solved | **17** |
+| Total submissions | 64 |
+| Accepted submissions | 23 |
 | Failed submissions | 41 |
 
 ### Difficulty
 
 | Difficulty | Solved | % | |
 | --- | --- | --- | --- |
-| Easy | 15 | 100.0% | `████████████████████` |
+| Easy | 17 | 100.0% | `████████████████████` |
 | Medium | 0 | 0.0% | `░░░░░░░░░░░░░░░░░░░░` |
 | Hard | 0 | 0.0% | `░░░░░░░░░░░░░░░░░░░░` |
 
@@ -29,19 +29,21 @@ _Last synced: 2026-09-03 02:35 IST_
 
 | Language | Solved | % |
 | --- | --- | --- |
-| C | 12 | 80.0% |
-| Python | 2 | 13.3% |
-| Bash | 1 | 6.7% |
+| C | 14 | 82.4% |
+| Python | 2 | 11.8% |
+| Bash | 1 | 5.9% |
 
 ### Streak
 
-🔥 **Current streak:** 0 day(s)  
+🔥 **Current streak:** 1 day(s)  
 🏆 **Longest streak:** 4 day(s)
 
 ### Recent Problems
 
 | Problem | Difficulty | Language | Status | Date |
 | --- | --- | --- | --- | --- |
+| [Remove Duplicates from Sorted Array](problems/0026-remove-duplicates-from-sorted-array/) | Easy | C | Accepted | Sep 03, 2026 |
+| [Shuffle the Array](problems/1470-shuffle-the-array/) | Easy | C | Accepted | Sep 03, 2026 |
 | [Palindrome Number](problems/0009-palindrome-number/) | Easy | Python | Accepted | Aug 28, 2026 |
 | [Smallest Missing Integer Greater Than Sequential Prefix Sum](problems/2996-smallest-missing-integer-greater-than-sequential-prefix-sum/) | Easy | C | Accepted | Aug 28, 2026 |
 | [Two Sum](problems/0001-two-sum/) | Easy | C | Accepted | Aug 27, 2026 |
@@ -50,14 +52,12 @@ _Last synced: 2026-09-03 02:35 IST_
 | [Happy Number](problems/0202-happy-number/) | Easy | C | Accepted | Aug 23, 2026 |
 | [Merge Two Sorted Lists](problems/0021-merge-two-sorted-lists/) | Easy | C | Accepted | Aug 22, 2026 |
 | [Kids With the Greatest Number of Candies](problems/1431-kids-with-the-greatest-number-of-candies/) | Easy | C | Accepted | Aug 19, 2026 |
-| [Plus One](problems/0066-plus-one/) | Easy | C | Accepted | Aug 19, 2026 |
-| [Longest Common Prefix](problems/0014-longest-common-prefix/) | Easy | C | Accepted | Aug 19, 2026 |
 
 ### Weekly / Monthly / Yearly Progress
 
-- This week: **0** unique problem(s) solved
-- This month: **0** unique problem(s) solved
-- This year: **15** unique problem(s) solved
+- This week: **2** unique problem(s) solved
+- This month: **2** unique problem(s) solved
+- This year: **17** unique problem(s) solved
 
 ### Monthly Activity
 
@@ -65,6 +65,6 @@ _Last synced: 2026-09-03 02:35 IST_
 
 ### Topics
 
-Array (6), Hash Table (5), Math (5), String (4), Linked List (2), Recursion (2), Bit Manipulation (2), Two Pointers (2), Floyd's Cycle Finding Algorithm (2), Trie (1), Stack (1), Bracket Sequences (1)
+Array (8), Hash Table (5), Math (5), String (4), Two Pointers (3), Linked List (2), Recursion (2), Bit Manipulation (2), Floyd's Cycle Finding Algorithm (2), Trie (1), Stack (1), Bracket Sequences (1)
 
 <!-- LC-SYNC:README-AUTO:END -->
