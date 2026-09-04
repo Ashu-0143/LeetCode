@@ -6,7 +6,7 @@ An automatically maintained archive of my LeetCode solutions, synced automatical
 
 ## 📊 LeetCode Dashboard
 
-_Last synced: 2026-09-04 21:54 IST_
+_Last synced: 2026-09-05 02:17 IST_
 
 ### Overall Progress
 
@@ -35,7 +35,7 @@ _Last synced: 2026-09-04 21:54 IST_
 
 ### Streak
 
-🔥 **Current streak:** 1 day(s)  
+🔥 **Current streak:** 0 day(s)  
 🏆 **Longest streak:** 4 day(s)
 
 ### Recent Problems
